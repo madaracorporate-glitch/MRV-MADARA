@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proposition Accompagnement - BeninBoyz Events x Madara</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.11/dist/tailwind.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body { background: #0b0f1a; color: #e2e8f0; margin: 0; }
+      a { color: inherit; text-decoration: none; }
+    </style>
+  </head>
+  <body class="bg-[#0B0F1A]">
+    <div id="root"></div>
+
+    <script type="text/babel" data-presets="react">
+      const Icon = ({ name, className }) => {
+        const base = {
+          xmlns: "http://www.w3.org/2000/svg",
+          fill: "none",
+          viewBox: "0 0 24 24",
+          strokeWidth: 2,
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          className,
+        };
+        const paths = {
+          BarChart3: ["M3 3v18h18", "M7 13h2v4H7z", "M11 9h2v8h-2z", "M15 5h2v12h-2z"],
+          BookOpen: ["M12 4.5v15", "M4.5 6.75A2.25 2.25 0 0 1 6.75 4.5H19.5v15H6.75A2.25 2.25 0 0 0 4.5 17.25Z", "M19.5 6.75A2.25 2.25 0 0 0 17.25 4.5H4.5v15h12.75A2.25 2.25 0 0 0 19.5 17.25Z"],
+          Calendar: ["M8 3v4", "M16 3v4", "M3 9h18", "M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"],
+          Zap: ["M13 2 3 14h7l-1 8 10-12h-7z"],
+          Users: ["M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", "M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8", "M23 21v-2a4 4 0 0 0-3-3.87", "M16 3.13a4 4 0 0 1 0 7.75"],
+          ArrowRight: ["M5 12h14", "M12 5l7 7-7 7"],
+          CheckCircle2: ["m9 12 2 2 4-4", "M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20"],
+          Clock: ["M12 6v6l3 3", "M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20"],
+          ShieldCheck: ["M12 3 4 7v6c0 3.9 2.6 7.4 6.4 8.5.5.1 1 .1 1.2 0C17.4 20.4 20 16.9 20 13V7z", "m9 12 2 2 4-4"],
+          CreditCard: ["M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z", "M2 10h20", "M6 14h2", "M10 14h2"],
+          Sparkles: ["M12 3v2", "M12 19v2", "M5 12H3", "M21 12h-2", "M17.657 6.343 16.243 7.757", "M7.757 16.243 6.343 17.657", "M17.657 17.657 16.243 16.243", "M7.757 7.757 6.343 6.343", "m10 14 2-2-2-2-2 2 2 2z", "m14 10 2-2-2-2-2 2 2 2z"],
+          ChevronRight: ["M9 18l6-6-6-6"],
+          Instagram: ["M16 2H8a6 6 0 0 0-6 6v8a6 6 0 0 0 6 6h8a6 6 0 0 0 6-6V8a6 6 0 0 0-6-6Z", "M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z", "M17.5 6.5h.01"],
+          FileText: ["M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z", "M14 2v6h6", "M16 13H8", "M16 17H8", "M10 9H8"],
+          Mail: ["M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z", "M22 6 12 13 2 6"],
+          Phone: ["M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.11 4.1 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 13 13 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 13 13 0 0 0 2.81.7 2 2 0 0 1 1.72 2.03z"],
+          Music: ["M9 18V5l12-2v13", "M9 9l12-2", "M6 18a3 3 0 1 0 6 0 3 3 0 0 0-6 0Z"],
+          MapPin: ["M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10", "M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4"],
+          X: ["M18 6 6 18", "M6 6l12 12"],
+          Send: ["M22 2 11 13", "M22 2 15 22l-4-9-9-4Z"],
+          PartyPopper: ["m5.8 11.3 3.9 3.9", "M2 22l3-9 9 3Z", "M4 3h.01", "M22 8h.01", "M15 2h.01", "M22 20h.01", "M22 14h.01", "M9 9h.01"],
+          Layers: ["M12 2 2 7l10 5 10-5-10-5Z", "M2 17l10 5 10-5", "M2 12l10 5 10-5"],
+          Search: ["m21 21-4.35-4.35", "a7.5 7.5 0 1 0-10.6 0 7.5 7.5 0 0 0 10.6 0Z"],
+          MessageSquare: ["M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"],
+          Bot: ["M12 8v4", "M9 11h6", "M11 5h2", "M17 4h-2.18a3 3 0 0 0-5.64 0H7a2 2 0 0 0-2 2v7a6 6 0 0 0 6 6h2a6 6 0 0 0 6-6V6a2 2 0 0 0-2-2Z", "M9 16h.01", "M15 16h.01"],
+        };
+        const d = paths[name];
+        if (!d) return null;
+        return (
+          <svg {...base}>
+            {d.map((p, i) => (
+              <path key={i} d={p} />
+            ))}
+          </svg>
+        );
+      };
+
+      const App = () => {
+        const [scrolled, setScrolled] = React.useState(false);
+        const [showModal, setShowModal] = React.useState(false);
+        const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+        React.useEffect(() => {
+          document.title = "Proposition Accompagnement - BeninBoyz Events x Madara";
+          const handleScroll = () => setScrolled(window.scrollY > 20);
+          window.addEventListener("scroll", handleScroll);
+          return () => window.removeEventListener("scroll", handleScroll);
+        }, []);
+
+        const handleConfirm = () => {
+          setIsSubmitting(true);
+          setTimeout(() => {
+            setIsSubmitting(false);
+            setShowModal(true);
+          }, 800);
+        };
+
+        const services = [
+          {
+            title: "Audit & Diagnostic",
+            icon: <Icon name="Search" className="w-6 h-6 text-indigo-400" />,
+            description: "Analyse chirurgicale de l'existant de BeninBoyz Events.",
+            details: [
+              "Benchmarking concurrentiel",
+              "Mapping de l'audience",
+              "Audit technique des comptes",
+              "Rapport d'opportunités",
+            ],
+          },
+          {
+            title: "Storytelling Global",
+            icon: <Icon name="BookOpen" className="w-6 h-6 text-indigo-400" />,
+            description: "Création d'un fil rouge captivant pour l'année.",
+            details: [
+              "Charte éditoriale complète",
+              "Tone of Voice (Ton de marque)",
+              "Storytelling multi-événements",
+              "Stratégie de fidélisation",
+            ],
+          },
+          {
+            title: "Planification 360°",
+            icon: <Icon name="Calendar" className="w-6 h-6 text-indigo-400" />,
+            description: "Calendrier de communication haute précision.",
+            details: [
+              "Planning stratégique annuel",
+              "Séquences Avant / Pendant / Après",
+              "Scripts pour vidéos & stories",
+              "Optimisation des temps forts",
+            ],
+          },
+          {
+            title: "Système d'Automation",
+            icon: <Icon name="Bot" className="w-6 h-6 text-indigo-400" />,
+            description: "Tunnels DM intelligents et billetterie automatisée.",
+            details: [
+              "Réponses automatiques DM",
+              "Relances paniers abandonnés",
+              "Foire aux questions automatisée",
+              "Tracking des conversions",
+            ],
+          },
+          {
+            title: "Consulting VIP",
+            icon: <Icon name="MessageSquare" className="w-6 h-6 text-indigo-400" />,
+            description: "12h de support stratégique pour Mrv.",
+            details: [
+              "Accès direct WhatsApp/Vocal",
+              "Points visio mensuels",
+              "Analyse de performance",
+              "Ajustements en temps réel",
+            ],
+          },
+          {
+            title: "Growth & Engagement",
+            icon: <Icon name="Instagram" className="w-6 h-6 text-indigo-400" />,
+            description: "Optimisation continue sur @beninboyz_events.",
+            details: [
+              "Stratégies de conversion",
+              "Viralité & Trends",
+              "Gestion de l'image de marque",
+              "Networking digital",
+            ],
+          },
+        ];
+
+        const methodology = [
+          {
+            phase: "Phase 1 : Fondations",
+            duration: "Mois 1",
+            tasks:
+              "Audit complet, définition de l'univers narratif et mise en place des premiers outils d'automatisation.",
+          },
+          {
+            phase: "Phase 2 : Déploiement",
+            duration: "Mois 2-3",
+            tasks:
+              "Lancement des premiers événements sous la nouvelle stratégie et optimisation des tunnels de vente.",
+          },
+          {
+            phase: "Phase 3 : Croissance",
+            duration: "Mois 4-12",
+            tasks:
+              "Routine de performance, analyse des données et scale de l'engagement communautaire.",
+          },
+        ];
+
+        const emailTarget = "madara@madara-community.com";
+        const phoneTarget = "07 68 04 02 71";
+        const mailtoLink = `mailto:${emailTarget}?subject=Validation Devis BeninBoyz Events - Mrv&body=Bonjour Madara, je confirme par la présente l'acceptation de la proposition d'accompagnement annuel pour BeninBoyz Events. Hâte de commencer l'aventure !`;
+
+        return (
+          <div className="min-h-screen bg-[#0B0F1A] font-sans text-slate-300 selection:bg-indigo-500/30 overflow-x-hidden scroll-smooth">
+            <style>{`
+              html { scroll-behavior: smooth; }
+              ::-webkit-scrollbar { width: 8px; }
+              ::-webkit-scrollbar-track { background: #0B0F1A; }
+              ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+              ::-webkit-scrollbar-thumb:hover { background: #4F46E5; }
+              .bg-glow { filter: blur(120px); pointer-events: none; }
+            `}</style>
+
+            <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+              <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-indigo-600/10 bg-glow rounded-full" />
+              <div className="absolute top-[20%] -right-[5%] w-[35%] h-[35%] bg-purple-600/10 bg-glow rounded-full" />
+              <div className="absolute bottom-[5%] left-[15%] w-[30%] h-[30%] bg-indigo-500/5 bg-glow rounded-full" />
+            </div>
+
+            <header
+              className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+                scrolled
+                  ? "bg-[#0B0F1A]/90 backdrop-blur-md border-b border-white/10 py-4 shadow-xl"
+                  : "bg-transparent py-6"
+              }`}
+            >
+              <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+                <div className="flex items-center gap-3 group cursor-pointer">
+                  <img src="./ASSET/Blanc%20%2B%20texte.png" alt="Logo" className="h-12 w-auto drop-shadow-2xl" />
+                </div>
+                <nav className="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+                  <a href="#propos" className="hover:text-white transition-colors">Client</a>
+                  <a href="#details" className="hover:text-white transition-colors">Détails</a>
+                  <a href="#methode" className="hover:text-white transition-colors">Méthode</a>
+                  <a href="#tarifs" className="hover:text-white transition-colors">Tarifs</a>
+                </nav>
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={handleConfirm}
+                    className="bg-white text-black px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-indigo-500 hover:text-white transition-all shadow-lg active:scale-95"
+                  >
+                    {isSubmitting ? "Initialisation..." : "Valider le Projet"}
+                  </button>
+                </div>
+              </div>
+            </header>
+
+            <main className="relative z-10">
+              <section id="propos" className="pt-32 px-6">
+                <div className="max-w-6xl mx-auto bg-white/5 border border-white/10 rounded-[2.5rem] p-8 md:p-10 flex flex-col md:flex-row justify-between gap-8 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-indigo-600 shadow-[0_0_15px_rgba(79,70,229,0.4)]" />
+                  <div className="space-y-5">
+                    <div className="flex items-center gap-2 text-indigo-400 font-black text-[10px] uppercase tracking-[0.3em]">
+                      <Icon name="FileText" className="w-4 h-4" /> Devis Professionnel #DEV-2024-001
+                    </div>
+                    <div className="space-y-1">
+                      <h2 className="text-white text-4xl font-black uppercase tracking-tighter italic">BeninBoyz Events</h2>
+                      <p className="text-slate-400 text-sm font-bold tracking-wide italic">Accompagnement Stratégique Annuel pour Mrv</p>
+                    </div>
+                    <div className="flex flex-wrap gap-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                      <div className="flex items-center gap-2 border-r border-white/10 pr-5"><Icon name="MapPin" className="w-3 h-3 text-indigo-500" /> Paris / International</div>
+                      <div className="flex items-center gap-2"><Icon name="Instagram" className="w-3 h-3 text-indigo-500" /> @beninboyz_events</div>
+                    </div>
+                  </div>
+                  <div className="md:text-right flex flex-col justify-between items-start md:items-end py-2">
+                    <div className="space-y-1">
+                      <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">Émis le : <span className="text-slate-300">22 Janvier 2026</span></p>
+                      <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">Validité : <span className="text-slate-300">30 Jours</span></p>
+                    </div>
+                    <span className="mt-4 md:mt-0 inline-flex items-center gap-2 px-4 py-1.5 bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-[9px] font-black uppercase tracking-widest rounded-full">
+                      <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 animate-pulse" /> En attente de signature
+                    </span>
+                  </div>
+                </div>
+              </section>
+
+              <section className="relative pt-24 pb-16 px-6">
+                <div className="max-w-4xl mx-auto text-center space-y-8">
+                  <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+                    L'Accompagnement <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Mastery.</span>
+                  </h1>
+                  <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed italic font-medium">
+                    "Transformer chaque événement de BeninBoyz en une onde de choc digitale pour dominer la scène nocturne."
+                  </p>
+                  <div className="h-1 w-24 bg-indigo-600 mx-auto rounded-full" />
+                </div>
+              </section>
+
+              <section id="details" className="py-24 px-6">
+                <div className="max-w-6xl mx-auto">
+                  <div className="flex items-center justify-between mb-20">
+                    <h2 className="text-2xl font-black text-white uppercase tracking-widest italic flex items-center gap-4">
+                      <Icon name="Layers" className="text-indigo-500 w-8 h-8" /> Le détail de l'offre
+                    </h2>
+                    <div className="hidden md:block h-px flex-1 bg-white/5 mx-10" />
+                  </div>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {services.map((service, index) => (
+                      <div key={index} className="group p-8 rounded-[3rem] bg-white/5 border border-white/5 hover:border-indigo-500/30 transition-all duration-500 relative flex flex-col shadow-2xl hover:bg-white/[0.07] hover:-translate-y-1">
+                        <div className="mb-8 p-4 bg-indigo-600/10 rounded-[1.5rem] inline-block group-hover:bg-indigo-600 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                          {React.cloneElement(service.icon, { className: "w-6 h-6 group-hover:text-white transition-colors" })}
+                        </div>
+                        <h3 className="font-bold text-xl text-white mb-4 tracking-tight uppercase italic">{service.title}</h3>
+                        <p className="text-slate-400 text-sm mb-8 leading-relaxed italic">{service.description}</p>
+                        <ul className="space-y-4 mt-auto pt-8 border-t border-white/10">
+                          {service.details.map((detail, idx) => (
+                            <li key={idx} className="flex items-start gap-3 text-[10px] font-black text-slate-500 uppercase tracking-widest leading-tight">
+                              <Icon name="CheckCircle2" className="w-3.5 h-3.5 text-indigo-500 flex-shrink-0" /> {detail}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              <section id="methode" className="py-28 px-6 bg-indigo-600/[0.03]">
+                <div className="max-w-5xl mx-auto">
+                  <div className="text-center mb-20 space-y-6">
+                    <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter">La Chronologie</h2>
+                    <div className="flex justify-center items-center gap-4">
+                      <div className="h-px w-12 bg-white/10" />
+                      <p className="text-indigo-400 font-black uppercase tracking-[0.4em] text-[10px]">Un partenariat structuré pas à pas</p>
+                      <div className="h-px w-12 bg-white/10" />
+                    </div>
+                  </div>
+                  <div className="grid gap-8">
+                    {methodology.map((item, index) => (
+                      <div key={index} className="relative p-10 rounded-[3rem] bg-white/5 border border-white/10 flex flex-col md:flex-row gap-10 items-center group hover:bg-white/[0.08] transition-all cursor-default overflow-hidden">
+                        <div className="absolute top-0 left-0 w-2 h-full bg-indigo-600/20 group-hover:bg-indigo-600 transition-colors" />
+                        <div className="text-6xl font-black text-indigo-600/20 group-hover:text-indigo-500 transition-all duration-500 italic shrink-0">0{index + 1}</div>
+                        <div className="flex-1 text-center md:text-left space-y-2">
+                          <h4 className="text-white font-black text-2xl uppercase italic tracking-tighter">{item.phase}</h4>
+                          <p className="text-indigo-400 text-[10px] font-black uppercase tracking-[0.4em]">{item.duration}</p>
+                          <p className="text-slate-400 text-base leading-relaxed max-w-2xl font-medium italic">{item.tasks}</p>
+                        </div>
+                        <div className="hidden lg:block">
+                          <div className="p-4 rounded-full border border-white/10 group-hover:border-indigo-500 transition-colors">
+                            <Icon name="ArrowRight" className="text-slate-700 group-hover:text-white transition-all group-hover:translate-x-2" />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              <section className="py-28 px-6">
+                <div className="max-w-4xl mx-auto">
+                  <h3 className="text-3xl font-black text-white mb-16 uppercase italic tracking-tighter text-center">Précisions <span className="text-indigo-500">Contractuelles</span></h3>
+                  <div className="grid md:grid-cols-2 gap-12">
+                    {[
+                      { q: "Gestion des 12 heures", a: "Utilisation libre (stratégie, audit flash, support vocal urgent). Un décompte transparent est partagé trimestriellement." },
+                      { q: "Flexibilité Événements", a: "L'offre couvre entre 5 et 10 événements. Au-delà, une adaptation simple du forfait est prévue pour maintenir l'excellence." },
+                      { q: "Disponibilité Prioritaire", a: "Ligne WhatsApp VIP pour Mrv. Temps de réponse garanti < 4h les jours ouvrables pour une réactivité maximale." },
+                      { q: "Modalités de Paiement", a: "Options : Annuel (remise 5%), Semestriel ou Mensuel. Les tarifs sont exprimés Hors Taxes (HT)." },
+                    ].map((faq, i) => (
+                      <div key={i} className="space-y-3 group border-l border-white/10 pl-6 hover:border-indigo-500 transition-all duration-500">
+                        <h4 className="text-white font-bold text-sm uppercase italic tracking-wider group-hover:text-indigo-400 transition-colors">{faq.q}</h4>
+                        <p className="text-xs text-slate-500 leading-relaxed font-medium italic">{faq.a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              <section id="tarifs" className="py-28 px-6 relative overflow-hidden">
+                <div className="max-w-5xl mx-auto">
+                  <div className="relative p-[1px] rounded-[4rem] bg-gradient-to-br from-indigo-500 to-transparent shadow-[0_0_50px_rgba(79,70,229,0.1)] group">
+                    <div className="bg-[#0D121F] rounded-[4rem] p-10 md:p-20 relative overflow-hidden backdrop-blur-md">
+                      <div className="absolute top-0 left-0 w-full h-1.5 bg-indigo-600 shadow-[0_0_25px_rgba(79,70,229,0.6)]" />
+                      <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-indigo-600/10 bg-glow rounded-full" />
+                      <div className="relative z-10 flex flex-col lg:flex-row gap-16 items-center">
+                        <div className="flex-1 space-y-10 text-left">
+                          <div className="space-y-4">
+                            <div className="text-indigo-500 font-black uppercase tracking-[0.4em] text-[10px] italic">Investissement Mastery</div>
+                            <h2 className="text-5xl md:text-8xl font-black text-white tracking-tighter italic leading-none">3 000 € <span className="text-xl md:text-3xl text-slate-600 font-bold not-italic tracking-[0.1em]">HT / AN</span></h2>
+                          </div>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-12">
+                            {['Accompagnement 12 mois', 'Focus 5-10 Événements', 'Setup Automations complet', 'Audit complet initial', 'Storytelling global', 'Support WhatsApp VIP'].map((item, i) => (
+                              <div key={i} className="flex items-center gap-3 text-slate-300 font-black text-[10px] uppercase tracking-widest border-b border-white/5 pb-2">
+                                <Icon name="CheckCircle2" className="w-4 h-4 text-indigo-500" /> {item}
+                              </div>
+                            ))}
+                          </div>
+                          <div className="flex flex-wrap gap-5 pt-4">
+                            <div className="px-6 py-2.5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3 shadow-inner">
+                              <Icon name="CreditCard" className="w-4 h-4 text-indigo-400" />
+                              <span className="text-[9px] font-black uppercase text-slate-400 tracking-[0.2em]">Paiement Échelonné possible</span>
+                            </div>
+                            <div className="px-6 py-2.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center gap-3">
+                              <Icon name="ShieldCheck" className="w-4 h-4 text-indigo-400" />
+                              <span className="text-[9px] font-black uppercase text-indigo-400 tracking-[0.2em]">Engagement Excellence</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="w-full lg:w-auto">
+                          <button
+                            onClick={handleConfirm}
+                            className="w-full lg:w-auto bg-white text-black hover:bg-indigo-600 hover:text-white px-14 py-10 rounded-[2.5rem] font-black text-2xl uppercase tracking-tighter transition-all shadow-2xl shadow-white/10 group active:scale-95"
+                          >
+                            {isSubmitting ? "Traitement..." : "Signer l'accord"}
+                            <Icon name="ArrowRight" className="inline ml-3 group-hover:translate-x-3 transition-transform" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-center text-slate-600 text-[10px] font-black uppercase tracking-[0.5em] mt-12 opacity-50">Devis confidentiel pour BeninBoyz Events — Propriété de Madara Mastery</p>
+                </div>
+              </section>
+
+              <section className="py-32 px-6 border-t border-white/5 bg-black/10">
+                <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-16 items-start">
+                  <div className="space-y-10 col-span-1">
+                    <h3 className="text-white font-black text-3xl uppercase italic tracking-tighter">Facturation (MRV)</h3>
+                    <div className="space-y-3 text-sm text-slate-300 leading-relaxed">
+                      <div className="flex justify-between gap-4"><span className="font-bold text-slate-200">Dénomination</span><span className="text-slate-400">EBI RECORDS (EBI RECRODS)</span></div>
+                      <div className="flex justify-between gap-4"><span className="font-bold text-slate-200">SIREN</span><span className="text-slate-400">927 492 835</span></div>
+                      <div className="flex justify-between gap-4"><span className="font-bold text-slate-200">SIRET</span><span className="text-slate-400">927 492 835 00016</span></div>
+                      <div className="flex justify-between gap-4"><span className="font-bold text-slate-200">TVA</span><span className="text-slate-400">FR52 927 492 835</span></div>
+                      <div className="flex justify-between gap-4"><span className="font-bold text-slate-200">NAF/APE</span><span className="text-slate-400">59.20Z (Enregistrement sonore)</span></div>
+                      <div className="flex justify-between gap-4"><span className="font-bold text-slate-200">Adresse</span><span className="text-slate-400">4 Rue Sainte Agnès (à confirmer)</span></div>
+                    </div>
+                  </div>
+                  <div className="col-span-2 bg-indigo-600/[0.04] border border-indigo-500/10 p-12 md:p-16 rounded-[4rem] space-y-8 relative overflow-hidden group shadow-inner">
+                    <div className="absolute top-0 right-0 p-12 opacity-[0.03] group-hover:opacity-10 transition-opacity">
+                      <Icon name="Sparkles" className="w-20 h-20" />
+                    </div>
+                    <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-medium italic relative z-10 font-serif">
+                      Cet accompagnement n'est pas une simple prestation de service, c'est l'externalisation de votre intelligence digitale. Je m'occupe de la structure technique et narrative pour que vous puissiez vous concentrer sur la production terrain.
+                    </p>
+                    <div className="flex items-center gap-5 pt-4">
+                      <div className="w-16 h-px bg-indigo-600" />
+                      <p className="text-white font-black uppercase tracking-[0.5em] text-[10px] italic">Madara — Mastery Strategic Consulting</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </main>
+
+            {showModal && (
+              <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+                <div className="absolute inset-0 bg-[#0B0F1A]/98 backdrop-blur-2xl animate-in fade-in duration-500" onClick={() => setShowModal(false)} />
+                <div className="relative bg-[#0D121F] border border-white/10 w-full max-w-2xl rounded-[3.5rem] p-10 md:p-16 shadow-[0_0_100px_rgba(79,70,229,0.2)] animate-in zoom-in-95 duration-500">
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="absolute top-8 right-8 p-3 bg-white/5 hover:bg-white/10 rounded-full text-slate-400 hover:text-white transition-all active:scale-90"
+                  >
+                    <Icon name="X" className="w-5 h-5" />
+                  </button>
+                  <div className="text-center space-y-10">
+                    <div className="inline-flex p-6 bg-indigo-600/20 rounded-[2rem] shadow-2xl relative overflow-hidden group">
+                      <Icon name="PartyPopper" className="w-16 h-16 text-indigo-400 group-hover:rotate-12 transition-transform duration-500" />
+                      <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 animate-pulse" />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter">Bienvenue Mrv !</h3>
+                      <p className="text-slate-400 text-lg font-medium italic">Votre validation a été reçue. BeninBoyz Events entre dans une nouvelle dimension stratégique.</p>
+                    </div>
+                    <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 text-left space-y-6 shadow-inner">
+                      <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-indigo-500 italic underline underline-offset-8 decoration-2">Lancement Immédiat</h4>
+                      <div className="grid gap-5">
+                        {["Signature du contrat numérique & Facture de setup", "Questionnaire d'onboarding narratif (15 min)", "Call d'Audit initial programmé sous 48h", "Ouverture de votre canal WhatsApp & Espace de suivi"].map((step, i) => (
+                          <div key={i} className="flex items-center gap-4 group">
+                            <div className="w-6 h-6 rounded-full bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-[10px] font-black text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-500">{i + 1}</div>
+                            <p className="text-sm text-slate-300 font-bold uppercase tracking-tighter group-hover:translate-x-1 transition-transform">{step}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="pt-6 flex flex-col gap-5">
+                      <a href={mailtoLink} className="w-full bg-white text-black hover:bg-indigo-600 hover:text-white py-6 rounded-[1.5rem] font-black text-xl uppercase tracking-tighter flex items-center justify-center gap-3 transition-all shadow-2xl active:scale-95 group">
+                        <Icon name="Send" className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /> Sceller l'accord par Mail
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <footer className="py-16 border-t border-white/5 text-center">
+              <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+                <p className="text-slate-600 text-[9px] font-black uppercase tracking-[0.4em] italic leading-loose">Madara Mastery — Accompagnement Annuel Privé pour Leaders de l'Événementiel</p>
+                <div className="flex gap-8 items-center">
+                  <a href="https://www.instagram.com/beninboyz_events?igsh=MTh6dmpyaXgxMmR5NQ%3D%3D&utm_source=qr" target="_blank" className="text-slate-600 hover:text-white transition-colors">
+                    <Icon name="Instagram" className="w-4 h-4" />
+                  </a>
+                  <div className="h-4 w-px bg-white/5" />
+                  <span className="text-slate-700 text-[8px] font-black uppercase tracking-[0.3em] border px-3 py-1.5 border-white/5 rounded-full">Confidentiel • 2026</span>
+                </div>
+              </div>
+            </footer>
+          </div>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
